@@ -1,0 +1,3 @@
+//= require supplier
+//= require receipt_detail
+//= require payment_method

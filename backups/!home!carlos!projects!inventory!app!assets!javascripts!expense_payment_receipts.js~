@@ -1,0 +1,87 @@
+var expense = {};
+
+var Expense = function () {
+
+    var obj = {};
+    var self = this;
+
+    self.obj = obj;
+    self.initialize = initialize;
+    self.initialize_associations = initialize_associations;
+
+    $(".expense_disc_pct").blur(function() {
+        compute_discount(obj);
+    });
+
+    $(".expense_discount").blur(function() {
+        compute_disc_pct(obj);
+    });
+
+    $(".expense").blur(function() {
+        initialize(this);
+        compute_amounts();
+
+    });
+
+    function initialize(input) {
+        if (isEmpty(obj)) {
+            var model_name = get_model_name(input);
+            var p = get_invoice_attrs(model_name);
+            var vat_pct = $("#" + model_name + "_vat_pct");
+            obj = {
+                'entry_date' : p.entry_date,
+                'gross_value' : p.gross_value,
+                'discount' : p.discount,
+                'disc_pct' : p.disc_pct,
+                'freight' : p.freight,
+                'vat' : p.vat,
+                'vat_pct' : vat_pct,
+                'withholding_source' : p.withholding_source,
+                'total' : p.total
+            };
+
+            if(obj.entry_date.val() == "") {
+                obj.entry_date.val(current_date());
+            }
+        }
+    }
+
+    function initialize_associations() {
+        var input_supplier = $('.receipt_supplier:first').get(0);
+        if (typeof input_supplier !== 'undefined') {
+            supplier = new Supplier();
+            supplier.initialize(input_supplier);
+        }
+        payment_method = new PaymentMethod();
+        payment_method.find_line_items();
+    }
+
+    function compute_amounts() {
+        var gross_value = obj.gross_value.asNumber() || 0;
+        var disc_pct = (obj.disc_pct.asNumber() / 100) || 0;
+        var discount = obj.discount.asNumber() ||  0;
+        var freight = obj.freight.asNumber() || 0;
+        var vat_pct = (obj.vat_pct.asNumber() / 100) || 0;
+        var withholding_source = obj.withholding_source.asNumber() || 0;
+        var vat = (gross_value - discount + freight) * vat_pct;
+        var total = gross_value - discount + freight + vat - withholding_source;
+        obj.vat.val(vat);
+        obj.total.val(total);
+        format_fields();
+    }
+
+    function format_fields() {
+        obj.gross_value.formatCurrency();
+        obj.discount.formatCurrency();
+        obj.freight.formatCurrency();
+        obj.vat.formatCurrency();
+        obj.withholding_source.formatCurrency();
+        obj.total.formatCurrency();
+    }
+
+    function obj() {
+        return obj;
+    }
+
+    return self;
+};

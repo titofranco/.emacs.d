@@ -1,0 +1,48 @@
+
+<ul class="f1 flist clear camps1">
+  <li class="last-no-border">
+    <%= label_tag "Datos proveedor", nil, :class=>"inv-ind" %>
+  </li>
+</ul>
+
+<ul class="f1 camps1 flist clear">
+  <li>
+    <%= label_tag(t(".supplier_dni"), nil, :class=>"bl") %>
+    <%= text_field_tag("", @purchase.supplier_id, :class=>"cheICod") %>
+  </li>
+  <li>
+    <%= label_tag(t(".supplier_dni"), nil, :class=>"bl") %>
+    <%= text_field_tag("", @purchase.supplier_dni, :class=>"fac3") %>
+  </li>
+  <li>
+    <%= label_tag(t(".supplier_name"), nil, :class=>"bl") %>
+    <%= text_field_tag("", @purchase.supplier_name,:class=>"fac2") %>
+  </li>
+  <li>
+    <%= label_tag(t(".supplier_main_number"), nil, :class=>"bl") %>
+    <%= text_field_tag("", @purchase.supplier_main_number, :class=>"facPhone") %>
+  </li>
+  <li>
+    <%= label_tag(t(".supplier_address"), nil, :class=>"bl") %>
+    <%= text_field_tag("", @purchase.supplier_address, :class=>"facAddr")%>
+  </li>
+  <li class="last">
+    <%= label_tag(t(".supplier_email"), nil, :class=>"bl") %>
+    <%= text_field_tag("", @purchase.supplier_email, :class=>"facEmail") %>
+  </li>
+</ul>
+
+<ul class="f1 flist clear">
+  <li>
+    <%= label_tag(t(".supplier_large_withholder"), nil, :class=>"bl") %>
+    <%= text_field_tag("", i18n_bool(@purchase.supplier_large_withholder), :class=>"fac3")%>
+  </li>
+  <li>
+    <%= label_tag(t(".supplier_large_taxpayer"), nil, :class=>"bl") %>
+    <%= text_field_tag("", i18n_bool(@purchase.supplier_large_taxpayer), :class=>"fac3")%>
+  </li>
+  <li>
+    <%= label_tag(t(".supplier_regime_type"), nil, :class=>"bl") %>
+    <%= text_field_tag("", display_name(Supplier::REGIME_TYPES, @purchase.supplier_regime_type), :class=>"fac3")%>
+  </li>
+</ul>

@@ -1,0 +1,24 @@
+<div class="product_details detail_fields">
+  <ul class="flist clear">
+    <li class="first">
+      <div class="addDel cheC clear fleft">
+      </div>
+    </li>
+
+    <li><%= f.text_field :product_id, :class=>"cheICod purchase_detail", :autocomplete=>"off", :readonly=>true %></li>
+
+    <li><%= f.text_field :product_reference, :class=>"purchase_detail product_reference reff",:autocomplete=>"off", :placeholder=>"Digite para buscar" %></li>
+
+    <li><%= f.autocomplete_field :product_name, autocomplete_product_name_commons_path, :class=>"purchase_detail_product cheI5", :autocomplete=>"off", :placeholder=>"Digite para buscar" %></li>
+
+    <li><%= f.text_field :product_manufacturer, :class=>"sale_detail cheI1" %></li>
+
+    <li><%= f.text_field :quantity, :class=>"purchase_detail cheI4" %></li>
+
+    <li><%= f.text_field :cost, :class=>"product_total purchase_detail cheI1" %></li>
+
+    <li><%= f.text_field(:total, :class=>"product_total purchase_detail cheI2 tot") %></li>
+
+    <li><%= f.hidden_field :vat_pct, :class=>"vat_pct purchase_detail", :autocomplete=>"off", :readonly=>true %></li>
+  </ul>
+</div>

@@ -1,0 +1,31 @@
+
+CREATE TEMPORARY TABLE `products_temp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `manufacturer` varchar(255) DEFAULT NULL,
+  `origin` varchar(20) DEFAULT NULL,
+  `make_of_car` varchar(255) DEFAULT NULL,
+  `reference` varchar(50) DEFAULT NULL,
+  `alternate_reference` varchar(50) DEFAULT NULL,
+  `price` decimal(12,2) DEFAULT '0.00',
+  `barcode` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_supplier_product_listings_on_reference` (`reference`),
+  KEY `index_supplier_product_listings_on_alternate_reference` (`alternate_reference`)
+) ENGINE=InnoDB AUTO_INCREMENT=32767 DEFAULT CHARSET=utf8;
+
+INSERT INTO inventory_dev.products_temp (category_name, description, manufacturer, origin, make_of_car, reference, alternate_reference, price)
+SELECT distinct TRIM(category_name), TRIM(description), TRIM(manufacturer), TRIM(origin), TRIM(make_of_car), TRIM(reference), TRIM(alternate_reference), MAX(price) as price FROM supplier_product_listings GROUP BY 1,2,3,4,5,6 ORDER BY category_name ASC;
+
+DELETE FROM supplier_product_listings;
+
+INSERT INTO inventory_dev.supplier_product_listings(category_name, description, manufacturer, origin, make_of_car, reference, alternate_reference, price)
+SELECT category_name, description, manufacturer, origin, make_of_car, reference, alternate_reference, price FROM products_temp;
+
+
+#Check duplicates
+select count(reference) AS cont, reference from supplier_product_listings group by reference having cont > 1;
+
+#Check specific reference
+select category_name, description, manufacturer, origin, reference, alternate_reference,price from supplier_product_listings where reference='OSA56-41-660';

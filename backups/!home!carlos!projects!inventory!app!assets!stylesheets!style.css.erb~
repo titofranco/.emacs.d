@@ -1,0 +1,990 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+body {
+    line-height: 1;
+    color: black;
+    background: white;
+    font-family: arial;
+    padding: 15px;
+}
+@font-face {
+    font-family: 'BebasRegular';
+    src: url('assets/bebaslat-webfont.eot');
+    src: url('assets/bebaslat-webfont.eot?#iefix') format('embedded-opentype'),
+    url('assets/bebaslat-webfont.woff') format('woff'),
+    url('assets/bebaslat-webfont.ttf') format('truetype'),
+    url('assets/bebaslat-webfont.svg#BebasRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+a{
+    text-decoration: none;
+}
+ol, ul {
+    list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+}
+blockquote: before, blockquote: after,
+q: before, q: after {
+    content: "";
+}
+h3{
+    font-size: .8em;
+    padding: 0 0 4px 0;
+    font-weight: bold;
+    color: #4eb1ba;
+}
+h2{
+    color: #D7D7D7;
+    font-family: 'BebasRegular';
+    font-size: 1.4em;
+    padding: 0 4px;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+}
+a.edit{
+    background: url(/assets/edit.png) no-repeat;
+    padding: 4px 0 4px 19px;
+
+}
+a.borrar{
+    background: url(/assets/borra.png) no-repeat;
+    padding: 3px 0 3px 19px;
+}
+a.actioBtn{
+    color: #4EB1BA;
+    font-size: .7em;
+}
+
+blockquote, q {
+    quotes: "" "";
+}
+.btnBuscar{}
+
+.bl{
+    display: block;
+}
+.il{
+    display: inline;
+}
+.campos{
+    width: 100%;
+
+}
+.campos li{
+/*  border-color: white;
+    border-width: 1px;
+    border-style: dotted;
+*/
+    width: 180px;
+}
+
+.campos li.first{
+    border-left: 1px solid white;
+}
+.campos .drop-down {
+    padding: 7px !important;
+    width: 167px !important;
+}
+
+.date-cont{
+    width: 135px !important;
+    padding-bottom: 19px !important;
+}
+
+.campos label{
+    text-align: center;
+}
+
+.clear{
+    overflow: hidden;
+    height: 100%;
+}
+
+.clear2{
+    clear: both;
+}
+.clear3{
+    overflow: auto;
+}
+.esp{
+    background: url(/assets/bg_27.jpg) repeat-x;
+    height: 48px;
+    border-left: solid 1px #adadad;
+    border-right: solid 1px #adadad;
+    border-bottom: solid 1px #adadad;
+    border-top: solid 1px #adadad;
+}
+.editBar input{
+    margin: 0;
+}
+.emple{
+    border: solid 1px #a7a8a8;
+    box-shadow: 3px 3px 3px #121519;
+    margin: 10px 0 10px 15px;
+}
+.fleft{
+    float: left;
+}
+.fright{
+    float: right;
+}
+.flist li{
+    float: left;
+
+}
+
+.filtros{
+    background: url(/assets/bg_19.jpg);
+    padding: 10px;
+    min-height: 500px;
+}
+.filtros2{
+    background: url(/assets/bg_19.jpg);
+    padding: 0px;
+    width: 100%;
+}
+.fil li{
+    padding: 8px 0 ;
+}
+.filCont{
+    overflow: auto;
+}
+.general{}
+.header{
+    background: url(/assets/bg_03.jpg) repeat-x;
+    border-top: solid 1px #adadad;
+    border-left: solid 1px #adadad;
+    border-right: solid 1px #adadad;
+    border-bottom: solid 1px #adadad;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-topright: 8px;
+    height: 64px;
+    width: 99.85%;
+}
+.hide{
+    display: none;
+}
+.log{
+    padding: 20px 20px 0 0;
+    font-size: .75em;
+}
+.log li{
+    padding: 8px 4px 0;
+}
+.log li.user{
+    color: #4eb1ba;
+}
+.log li.salir{
+    background: url(/assets/line.jpg) repeat-y;
+    padding: 0 8px;
+}
+.logo{
+    margin: 11px 0 0 7px;
+}
+.menu{}
+.menuCont{
+    height: 34px;
+    border-top: solid 1px #f8f8f8;
+    background: url(/assets/bg_15.jpg) repeat-x;
+    border-right: solid 1px #adadad;
+}
+.msnError{
+    color: #f23c49;
+    font-size: .8em;
+    padding: 0 0 0 4px;
+}
+span.blanco{
+    color: #fff;
+}
+span.azul{
+    color: #242b32;
+}
+span.regi{
+    font-size: .9em;
+
+}
+.sf-menu{
+}
+.sf-menu li{
+    position: relative;
+    z-index: 10;
+    border-left: solid 1px #adadad;
+    padding: 5px;
+}
+
+.sf-menu li{
+/*    border-bottom: 1px solid #ADADAD;
+    border-right: 1px solid #ADADAD;*/
+}
+
+.sf-menu li ul{
+    position: absolute;
+    z-index: 11;
+    display: none;
+}
+.sf-menu li ul li{
+    min-width: 130px;
+    background: #c8c8c8;
+}
+.sf-menu li a{
+    display: block;
+    padding: 4px 8px;
+    font-family: 'BebasRegular';
+    color: #222930;
+}
+
+#inv_act.sf-menu a{
+}
+
+.sf-menu a:hover{
+    color: #FFFFFF;
+}
+
+.action-menu li{
+    position: relative;
+    z-index: 10;
+    padding: 0px;
+}
+.action-menu li ul{
+    position: relative;
+    z-index: 11;
+    display: none;
+}
+.action-menu li ul li{
+    min-width: 130px;
+    background: #c8c8c8;
+}
+
+.action-menu li a{
+    color: #222930;
+    display: block;
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 8px;
+}
+
+.titSec{
+    line-height: 51px;
+    text-transform: uppercase;
+    color: #222930;
+    font-weight: bold;
+    padding: 0 0 0 12px;
+}
+/*FORMULARIOS*/
+label{
+    color: #fff;
+    font-size: .9em;
+    margin: 0 0 0 4px;
+}
+input.f{
+    background: #4eb1ba;
+    border: solid 1px #98f5fd;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    padding: 3px;
+    color: #fff;
+    width: 175px;
+    margin: 4px;
+}
+select.f{
+    background: #4eb1ba;
+    border: solid 1px #98f5fd;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    padding: 2px 3px;
+    color: #fff;
+    width: 180px;
+    margin: 4px;
+}
+input.btnBuscar{
+    background: none;
+    border: none;
+    margin: 20px 0 0 15px;
+}
+
+.button {
+   background: #c7cccf;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ebebeb), to(#c7cccf));
+   background: -webkit-linear-gradient(top, #ebebeb, #c7cccf);
+   background: -moz-linear-gradient(top, #ebebeb, #c7cccf);
+   background: -ms-linear-gradient(top, #ebebeb, #c7cccf);
+   background: -o-linear-gradient(top, #ebebeb, #c7cccf);
+   padding: 2px 4px;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #051D2E;
+   font-size: 0.7em;
+   font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   background: #cfcfcf;
+   color: white;
+   }
+.button: active {
+   background: #89acc4;
+   }
+
+.button {
+   border-color: #969696;
+   border-style: solid;
+   border-width: 1px;
+}
+
+/*TABLAS*/
+.t1{
+    width: 300px;
+}
+.t2{
+    width: 400px;
+}
+.t3{
+    width: 350px;
+}
+.tablasCont{
+    height: 341px;
+    overflow: auto;
+}
+.tablasCont2{
+    background: #fff;
+}
+
+.tablasHist .tablasCont2{
+    margin-bottom: 55px;
+}
+
+#request .tablasHist .tablasCont2{
+    margin-bottom: 5px !important;
+}
+
+.rDesc {
+    width: 220px;
+}
+
+.rName {
+    width: 300px;
+}
+
+.rDni {
+    width: 140px;
+}
+.rProdDesc {
+    width: 370px;
+}
+.tCont{
+    padding: 5px 4px ;
+    border-left: solid 1px #b8b8b8;
+    border-top: solid 1px #b8b8b8;
+}
+tbody{
+    background: none repeat scroll 0 0 #FFFFFF;
+
+}
+.tCont2{
+    padding: 6px;
+    border-left: solid 1px #b8b8b8;
+}
+.tCont2 h3{
+    color: #fff;
+    padding: 3px 0;
+}
+.tablas{
+    border-left: solid 1px #adadad;
+    border-right: solid 1px #adadad;
+}
+.tablasHist{
+    padding: 0 15px;
+}
+.tablas h2{
+    font-size: 1.2em;
+    font-family: 'BebasRegular';
+    padding: 15px;
+    color: #fff;
+    background: url("/assets/bg_19.jpg") repeat scroll 0 0 transparent;;
+}
+.tabHead{
+    background: #185782 url(/assets/bg_31.jpg) repeat-x;
+    padding: 0 17px 0 0;
+}
+.tabHead2{
+    background: white url(/assets/bg_31.jpg) repeat-x;
+}
+
+.tabHead2 th{
+    background: url("/assets/bg_31.jpg") repeat-x scroll 0 0 #185782;
+    border-left: 1px solid #B8B8B8;
+    border-top: 1px solid #B8B8B8;
+    color: #FFFFFF;
+    font-size: 14px;
+    text-align: center;
+    padding-left: 0;
+    padding-top: 8px;
+    white-space: normal;
+    width: 65px;
+}
+
+#tEsp{
+    overflow: scroll;
+}
+td.tPad{
+    padding: 9px;
+}
+td.tPad2{
+    padding: 2px 9px;
+}
+td.first{
+    border-left: 0;
+}
+tr.even, .gris{
+    background: #eeeeee;
+}
+
+/*Forms*/
+#factura input.reff{
+    width: 141px;
+}
+input.ana{
+    margin: 4px 0 0 2px;
+}
+a.anadirCampo{
+    color: #222930;
+    text-transform: uppercase;
+    background: #dfdfdf;
+    border-raodius: 4px;
+    -moz-border-radius: 4px;
+    font-size: .9em;
+    text-align: center;
+    padding: 8px 0 6px;
+    font-family: 'BebasRegular';
+}
+.anadir{
+    padding: 8px 0 0 0;
+}
+.activ{
+    padding: 2px 0 0 0;
+}
+.activ label{
+    margin: 5px 4px 0 2px;
+}
+.activ input{
+    margin: 6px 12px 0 0 ;
+}
+.forms {
+    width: 262px;
+    padding: 10px 15px;
+}
+textarea.f{
+    background: none repeat scroll 0 0 #4EB1BA;
+    border: 1px solid #98F5FD;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    margin: 4px;
+    padding: 3px;
+    width: 221px;
+    font-family: arial;
+    font-size: .9em;
+}
+legend{
+    text-transform: uppercase;
+    color: #d7d7d7;
+    padding: 0 4px;
+    font-family: 'BebasRegular';
+    font-size: 1.4em;
+}
+fieldset{
+    border: solid 1px #d7d7d7;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+.forms input.f {
+    background: none repeat scroll 0 0 #4EB1BA;
+    border: 1px solid #98F5FD;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    margin: 4px;
+    padding: 3px;
+    width: 221px;
+}
+
+.forms input.id {
+    width: 20px !important;
+}
+.forms input.aut_names {
+    width: 180px !important;
+}
+
+.forms select.f {
+    width: 227px;
+}
+
+.forms input.error{
+    border: solid 1px #f23c49;
+    background: #f9b6b6;
+}
+
+/*FACTURA*/
+#factura #f1{
+    width: 336px;
+}
+#factura #f2{
+    width: 465px;
+}
+.f1 li{
+    border-right: solid 1px #fff;
+    padding: 5px;
+}
+#factura{
+    border: solid 1px #fff;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    width: 1110px;
+    margin: 0 auto;
+    float: left;
+}
+#factura input, .link_invoice{
+    background: none repeat scroll 0 0 #4EB1BA;
+    border: 1px solid #98F5FD;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    margin: 4px;
+    padding: 3px;
+    width: 221px;
+}
+
+.link_invoice{
+    width: 110px !important;
+}
+
+.crd_invoice{
+    width: 131px !important;
+}
+
+.link_invoice a{
+    color: #FFB773;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.link_invoice a:hover{
+    color: white;
+}
+
+#factura input.fche{
+    width: 15px;
+}
+#factura select{
+    background: none repeat scroll 0 0 #4EB1BA;
+    border: 1px solid #98F5FD;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    margin: 4px;
+    padding: 2px 3px;
+    width: 180px;
+}
+.add{
+    background: url("/assets/add_04.jpg") no-repeat scroll 0 0 transparent;
+    height: 21Px;
+    text-indent: -9000%;
+    width: 21px;
+}
+.detFac{
+    border-top: solid 2px #fff;
+    border-bottom: solid 2px #fff;
+    padding: 0 0 5px 0;
+}
+.detFac li{
+    border-left: solid 1px #fff;
+}
+.detFac li.first{
+    border-left: none;
+}
+.btnAdd{
+    padding: 5px 0 0 8px;
+    border-top: solid 1px #fff;
+}
+.chequeCont{
+    border-right: solid 1px #fff;
+    border-top: solid 1px #fff;
+    border-bottom: solid 2px #fff;
+    padding: 5px 10px 5px 10px;
+}
+#readonly .chequeTit {
+  margin-left: 8px;
+}
+
+.cheque {
+    padding: 0 0 4px 0;
+}
+.cheC{
+    width: 21px;
+}
+.cheLCod{
+    width: 56px;
+}
+
+.cheC1{
+    width: 110px;
+}
+.cheC1e{
+    width: 166px;
+}
+.cheC2{
+    width: 117px;
+}
+.cheRN{
+    width: 179px;
+}
+.cheC2r{
+    width: 157px;
+}
+.cheC3{
+    width: 159px;
+}
+.cheAmount{
+    width: 116px;
+}
+.cheC4{
+    width: 50px;
+}
+.cheC5{
+    width: 351px;
+}
+.cheC5a{
+    width: 110px;
+}
+.cheC6{
+    width: 146px;
+}
+.cheC7{
+    width: 125px;
+}
+.cheCTot{
+    width: 114px;
+}
+
+.detFac ul{
+    padding: 0 8px;
+
+}
+.detFac ul.t{
+    border-bottom: solid 1px #fff;
+}
+.detFac ul.t li{
+    padding: 8px 0;
+}
+#factura .cheICod{
+    width: 40px;
+}
+#factura .cheICod1{
+    width: 41px;
+}
+#factura .cheI1{
+    width: 94px;
+}
+#factura .cheI1a{
+    width: 90px;
+}
+#factura .cheI2{
+    width: 100px;
+}
+#factura .cheI3{
+    width: 143px;
+}
+#factura .cheI4{
+    width: 34px;
+}
+#factura .cheI5{
+    width: 335px;
+}
+#factura .cheI6{
+    width: 130px;
+}
+#factura .cheI7{
+    width: 109px;
+}
+
+#factura .del{
+    background: url(/assets/cross.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    text-indent: -9000%;
+    margin: 9px auto 0;
+}
+#factura input.tot{
+    background: none;
+    border: none;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    margin: 4px 4px 6px 4px;
+    padding: 3px;
+    text-align: left;
+    font-weight: bold;
+}
+#factura .esp2{
+    background: #fab1b1;
+    width: 178px;
+}
+.flab{
+    padding: 5px 0 0 0;
+}
+#factura  .fac1{
+    width: 103px;
+}
+#factura  .fac2{
+    width: 279px;
+}
+#factura  .fac3{
+    width: 120px;
+}
+#factura  .fac4{
+    width: 157px;
+}
+#factura .facAddr{
+    width: 170px;
+}
+#factura .facPhone{
+    width: 85px;
+}
+#factura .facEmail{
+    width: 250px;
+}
+#factura label{
+    font-size: .8em;
+}
+#factura input{
+    font-size: 12px !important;
+}
+.inv-ind {
+    font-size: 16px !important;
+    font-weight: bold;
+}
+.f1 li.last{
+    border-right: none;
+}
+.f1 .last-no-border{
+    border-right: none;
+}
+.opt{
+    padding-bottom: 11px;
+}
+.lTot {
+    width: 73px;
+    padding: 5px 0 0 0;
+}
+#factura .iTot{
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 0;
+    padding: 3px;
+    text-align: right;
+    width: 120px;
+
+}
+.totales{
+    border-left: solid 1px #fff;
+    width: 40%;
+}
+
+.totals{
+    border-left: solid 1px #fff;
+    border-right: solid 1px #fff;
+    width: 25%;
+}
+
+.totals2{
+    border-left: solid 1px #fff;
+    border-right: solid 1px #fff;
+    width: 34%;
+}
+
+.balances{
+    width: 22%;
+}
+
+.balances2{
+    width: 30%;
+}
+
+.totales li{
+    padding: 0 0 4px 0;
+}
+.note{
+    padding: 10px;
+    width: 20%;
+}
+.totalObserva{
+    padding: 10px;
+    width: 50%;
+}
+.totalObserva textarea, .note textarea, .note2 textarea{
+    background: none repeat scroll 0 0 #4EB1BA;
+    border: 1px solid #98F5FD;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    margin: 4px;
+    padding: 3px;
+    width: 550px;
+    height: 84px;
+    font-family: arial;
+    font-size: .85em
+}
+
+.note textarea {
+    width: 470px !important;
+}
+
+.note2 textarea {
+    width: 323px !important;
+}
+
+.facBtn{
+    border-top: solid 1px #fff;
+    padding: 4px 0;
+}
+.camps1{
+    border-bottom: solid 1px #fff;
+}
+.camps1 li{
+    border-bottom: none;
+}
+.camps1 li.last{
+    border-right: solid 1px #fff;
+}
+
+.hidden{
+    display: none;
+}
+
+.hidden-pag{
+    color: #F1F1F1;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#factura.barcode {
+    width: 150px ;
+}
+
+/*It fixes placeholder font-color on Chrome*/
+input: : -webkit-input-placeholder {
+    color: white !important;
+}
+
+@media print {
+.menuCont, .esp, .header{
+    display: none;
+}
+
+
+/*Uncomment this in case you need a black&white invoice*/
+/*
+  .filtros, body {
+  background-color: white;
+  }
+  label{
+  color: black;
+  }
+
+#factura {
+border: 1px solid black;
+}
+
+#factura input, .totalObserva textarea {
+color: black;
+background: none repeat scroll 0 0 white;
+border: 1px solid gray;
+}
+
+#factura input.tot {
+color: black;
+}
+
+#factura .iTot {
+color: black;
+}
+
+.camps1 {
+border-bottom: 1px solid black;
+}
+
+.camps1 li.last {
+border-right: 1px solid black;
+}
+
+.camps1 {
+border-bottom: 1px solid black;
+}
+
+.f1 li {
+border-right: 1px solid black;
+padding: 5px;
+border-bottom: 1px solid black;
+
+}
+
+.detFac li {
+border-left: 1px solid black;
+}
+
+.detFac ul.t {
+border-bottom: 1px solid black;
+}
+
+.detFac {
+border-bottom: 2px solid black;
+border-top: 2px solid black;
+}
+
+.chequeCont {
+border-bottom: 1px solid black;
+border-top: 1px solid black;
+}
+
+.totales {
+border-left: 1px solid black;
+}
+*/
+
+}

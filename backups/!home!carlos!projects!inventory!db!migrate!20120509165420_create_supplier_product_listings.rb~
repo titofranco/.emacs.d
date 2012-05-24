@@ -1,0 +1,21 @@
+class CreateSupplierProductListings < ActiveRecord::Migration
+  def self.up
+    create_table :supplier_product_listings do |t|
+      t.string :category_name
+      t.string :description
+      t.string :manufacturer
+      t.string :origin
+      t.string :make_of_car
+      t.string :reference
+      t.string :alternate_reference
+      t.decimal :price
+      t.string :barcode
+
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :supplier_product_listings
+  end
+end
