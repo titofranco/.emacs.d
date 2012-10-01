@@ -103,6 +103,7 @@
 (setq load-path (append (list (expand-file-name "~/.emacs.d/js2-mode")) load-path))
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\.erb\\'" . js2-mode))
 
 ;;; rhtml-mode
 (add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
