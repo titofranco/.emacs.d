@@ -1,8 +1,17 @@
+;; add all the directories in .emacs.d/vendor/ to the path
+(let* ((files (directory-files "~/.emacs.d/vendor" t "[^\.+]")))
+ (mapcar (lambda (d) (add-to-list 'load-path d)) files))
+
 ;;Starter Kit
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
+
+;; Turn off mouse interface early in startup to avoid momentary display
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;;MY CONFIG
 
@@ -15,10 +24,6 @@
 
 (setq user-mail-address "titofranco@gmail.com")
 (setq user-full-name "Carlos Guisao")
-
-;; add all the directories in .emacs.d/vendor/ to the path
-(let* ((files (directory-files "~/.emacs.d/vendor" t "[^\.+]")))
- (mapcar (lambda (d) (add-to-list 'load-path d)) files))
 
 ;; Twilight mode
 (require 'color-theme)
@@ -64,6 +69,10 @@
 
 ;; Font family and size
 (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 140)
+
+;;Smooth Scrolling
+(load-file "~/.emacs.d/vendor/smooth-scrolling.el")
+(require 'smooth-scrolling)
 
 ;; MuMaMo-Mode for rhtml files
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/nxhtml/util")
