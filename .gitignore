@@ -1,3 +1,7 @@
 backups/*
 auto-save-list/*
 session*
+.smex-items
+ido.last
+places
+recentf
