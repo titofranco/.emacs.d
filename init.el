@@ -1,4 +1,6 @@
 ;; add all the directories in .emacs.d/vendor/ to the path
+(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/vendor")
 (let* ((files (directory-files "~/.emacs.d/vendor" t "[^\.+]")))
  (mapcar (lambda (d) (add-to-list 'load-path d)) files))
 
@@ -80,3 +82,8 @@
 ;;(setq mumamo-chunk-coloring 'submode-colored)
 ;;(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
 ;;(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-html-mumamo))
+
+;; ---------------------------
+;; -- JS Mode configuration --
+;; ---------------------------
+(load "~/.emacs.d/vendor/js-config.el")
