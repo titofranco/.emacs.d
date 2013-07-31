@@ -5,6 +5,14 @@
 (package-initialize)
 
 ;;MY CONFIG
+(require 'cl)
+(require 'ido) ;;improves the speed at which you open files and buffers
+(require 'ffap) ;;replaces certain key bindings for finding files
+(require 'uniquify) ;; give the buffers distinct names
+(require 'ansi-color)
+(require 'recentf) ;; builds a list of recently opened files
+(require 'dired-x)
+(require 'compile)
 
 (display-time)
 (setq line-number-mode t)
@@ -12,6 +20,15 @@
 (line-number-mode t)
 (column-number-mode 1)
 (setq scroll-bar-mode nil)
+(ido-mode t)
+(menu-bar-mode -1)
+(normal-erase-is-backspace-mode 1)
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(setq inhibit-startup-message t)
+(setq save-abbrevs nil)
+(setq suggest-key-bindings t)
+(setq vc-follow-symlinks t)
 
 (setq user-mail-address "titofranco@gmail.com")
 (setq user-full-name "Carlos Guisao")
