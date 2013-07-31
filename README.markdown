@@ -1,7 +1,6 @@
 #emacs.d
 
-Based on emacs starter kit: http://github.com/technomancy/emacs-starter-kit/
-Includes ruby, rhtml, rinari, js2, coffee modes and all starter kit files. 
+Based on emacs starter kit: http://github.com/technomancy/emacs-starter-kit/. Includes ruby, rhtml, rinari, js2, coffee modes and all starter kit files. 
 
 ##Instalation
 
