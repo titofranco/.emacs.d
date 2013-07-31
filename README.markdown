@@ -12,6 +12,7 @@ sudo apt-get install -y emacs24-nox emacs24-el emacs24-common-non-dfsg emacs-sna
 
 Backup your emacs.d first
 ```sh
-$ mv ~/.emacs.d ~/.emacs.d~
+cd $HOME
+mv .emacs.d .emacs.d~
 ```
 Move this folder contents to your emacs.d
