@@ -46,10 +46,6 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\.erb$" . rhtml-mode))
 
-;;; rhtml mode
-(add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
-(require 'rhtml-mode)
-
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.less\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.scss\\'" . css-mode))
@@ -59,8 +55,6 @@
 (setq-default show-trailing-whitespace t)
 (show-paren-mode t)
 (setq show-paren-style 'expression)
-
-(set-face-attribute 'default (selected-frame) :height 120)
 
 ;; Allow maximize window
 (load-file "~/.emacs.d/vendor/maxframe.el")
@@ -81,6 +75,13 @@
 
 ;; Font family and size
 (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 140)
+
+;;; rhtml mode
+(add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
+(require 'rhtml-mode)
+
+;;yasnippet mode
+(yas-global-mode 1)
 
 ;; MuMaMo-Mode for rhtml files
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/nxhtml/util")
