@@ -37,6 +37,10 @@
 (let* ((files (directory-files "~/.emacs.d/vendor" t "[^\.+]")))
  (mapcar (lambda (d) (add-to-list 'load-path d)) files))
 
+;;; rhtml mode
+(add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
+(require 'rhtml-mode)
+
 ;; Twilight mode
 (require 'color-theme)
 (load-file "~/.emacs.d/vendor/twilight/twilight.el")
@@ -45,6 +49,12 @@
 ;; js2-mode from https://github.com/mooz/js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\.erb$" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.handlebars" . rhtml-mode))
+
+;;Coffee mode
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+(setq coffee-tab-width 2)
 
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.less\\'" . css-mode))
@@ -75,10 +85,6 @@
 
 ;; Font family and size
 (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 140)
-
-;;; rhtml mode
-(add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
-(require 'rhtml-mode)
 
 ;;yasnippet mode
 (yas-global-mode 1)
