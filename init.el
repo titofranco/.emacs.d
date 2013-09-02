@@ -49,7 +49,6 @@
 ;; js2-mode from https://github.com/mooz/js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\.erb$" . rhtml-mode))
-(add-to-list 'auto-mode-alist '("\\.handlebars" . rhtml-mode))
 
 ;;Coffee mode
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
@@ -60,6 +59,10 @@
 (add-to-list 'auto-mode-alist '("\\.css\\.less\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.scss\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.erb\\'" . css-mode))
+
+;;handlebars mode
+(load-file "~/.emacs.d/vendor/handlebars-mode.el")
+(require 'handlebars-mode)
 
 ;; nice parentheses
 (setq-default show-trailing-whitespace t)
