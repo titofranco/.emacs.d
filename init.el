@@ -92,6 +92,9 @@
 ;;yasnippet mode
 (yas-global-mode 1)
 
+;;Feature mode
+(add-to-list 'load-path "~/.emacs.d/elpa/feature-mode-0.4")
+
 ;; MuMaMo-Mode for rhtml files
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/nxhtml/util")
 ;;(require 'mumamo-fun)
