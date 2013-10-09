@@ -87,7 +87,7 @@
 (scroll-bar-mode -1)
 
 ;; Font family and size
-(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 140)
+(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 130)
 
 ;;yasnippet mode
 (yas-global-mode 1)
