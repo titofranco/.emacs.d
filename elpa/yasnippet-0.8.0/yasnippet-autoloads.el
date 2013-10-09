@@ -1,10 +1,10 @@
 ;;; yasnippet-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+
 
-;;;### (autoloads nil "yasnippet" "yasnippet.el" (21003 41980 988571
-;;;;;;  965000))
+;;;### (autoloads (yas-global-mode yas-minor-mode) "yasnippet" "yasnippet.el"
+;;;;;;  (21047 28614))
 ;;; Generated autoloads from yasnippet.el
 
 (autoload 'yas-minor-mode "yasnippet" "\
@@ -48,13 +48,15 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;***
 
 ;;;### (autoloads nil nil ("dropdown-list.el" "yasnippet-pkg.el")
-;;;;;;  (21003 41981 569942 652000))
+;;;;;;  (21047 28629 656670))
 
 ;;;***
 
+(provide 'yasnippet-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; yasnippet-autoloads.el ends here
