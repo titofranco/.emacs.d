@@ -14,13 +14,14 @@
 (require 'dired-x)
 (require 'compile)
 
+(ido-mode t)
+(ido-ubiquitous-mode t)
 (display-time)
 (setq line-number-mode t)
 (global-linum-mode 1)
 (line-number-mode t)
 (column-number-mode 1)
 (setq scroll-bar-mode nil)
-(ido-mode t)
 (menu-bar-mode -1)
 (normal-erase-is-backspace-mode 1)
 (put 'downcase-region 'disabled nil)
@@ -45,6 +46,9 @@
 (require 'color-theme)
 (load-file "~/.emacs.d/vendor/twilight/twilight.el")
 (color-theme-twilight)
+
+;; rake
+(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 
 ;; js2-mode from https://github.com/mooz/js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -92,8 +96,18 @@
 ;;yasnippet mode
 (yas-global-mode 1)
 
-;;Feature mode
+;; Feature mode - Cucumber
 (add-to-list 'load-path "~/.emacs.d/elpa/feature-mode-0.4")
+
+;; Rinari
+;; (add-to-list 'load-path "~/.emacs.d/elpa/rinari")
+;; (require 'rinari)
+
+;; Keybinds
+(global-set-key (kbd "M-g") 'goto-line)
+
+;; Disable automatic line break
+(add-hook 'html-mode-hook 'turn-off-auto-fill)
 
 ;; MuMaMo-Mode for rhtml files
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/nxhtml/util")
