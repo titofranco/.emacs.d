@@ -53,6 +53,9 @@
 ;; js2-mode from https://github.com/mooz/js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\.erb$" . rhtml-mode))
+;; JS indentation
+ (setq js-indent-level 2)
+(setq js2-basic-offset 2)
 
 ;;Coffee mode
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
@@ -108,6 +111,7 @@
 
 ;; Disable automatic line break
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
+
 
 ;; MuMaMo-Mode for rhtml files
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/nxhtml/util")
