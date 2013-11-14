@@ -112,7 +112,7 @@
 
 ;; Disable automatic line break
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
-
+(add-hook 'js2-mode-hook 'turn-off-auto-fill)
 
 ;; MuMaMo-Mode for rhtml files
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/nxhtml/util")
