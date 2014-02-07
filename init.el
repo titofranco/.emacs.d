@@ -120,3 +120,9 @@
 ;;(setq mumamo-chunk-coloring 'submode-colored)
 ;;(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
 ;;(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-html-mumamo))
+
+;;autocomplete
+(add-to-list 'load-path "~/.emacs.d/vendor/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/ac-dict")
+(ac-config-default)
