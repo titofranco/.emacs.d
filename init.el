@@ -42,6 +42,9 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
 (require 'rhtml-mode)
 
+;;(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+;;(add-to-list 'auto-mode-alist '("\\.html.erb$" . web-mode))
+
 ;; Twilight mode
 (require 'color-theme)
 (load-file "~/.emacs.d/vendor/twilight/twilight.el")
@@ -49,6 +52,9 @@
 
 ;; rake
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
+
+(require 'flymake-jslint)
+(add-hook 'js2-mode-hook 'flymake-jslint-load)
 
 ;; js2-mode from https://github.com/mooz/js2-mode
 (autoload 'js2-mode "js2-mode" nil t)
