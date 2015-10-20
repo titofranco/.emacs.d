@@ -38,6 +38,10 @@
 (let* ((files (directory-files "~/.emacs.d/vendor" t "[^\.+]")))
  (mapcar (lambda (d) (add-to-list 'load-path d)) files))
 
+;;; full screen
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+
 ;;; rhtml mode
 (add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
 (require 'rhtml-mode)
@@ -49,11 +53,14 @@
 
 ;; rake
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\Gemfile*\\'" . ruby-mode))
 
 ;; js2-mode from https://github.com/mooz/js2-mode
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\.erb$" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.xls\\.erb$" . rhtml-mode))
+
 ;; JS indentation
  (setq js-indent-level 2)
 (setq js2-basic-offset 2)
@@ -64,6 +71,7 @@
 (setq coffee-tab-width 2)
 
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.less\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.scss\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.erb\\'" . css-mode))
@@ -76,11 +84,6 @@
 (setq-default show-trailing-whitespace t)
 (show-paren-mode t)
 (setq show-paren-style 'expression)
-
-;; Allow maximize window
-(load-file "~/.emacs.d/vendor/maxframe.el")
-(require 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
 
 ;allow copy-paste system
 (setq x-select-enable-clipboard t)
@@ -95,7 +98,7 @@
 (scroll-bar-mode -1)
 
 ;; Font family and size
-(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 130)
+(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 160)
 
 ;;yasnippet mode
 (yas-global-mode 1)
@@ -126,3 +129,4 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/ac-dict")
 (ac-config-default)
+(set-keyboard-coding-system nil)
