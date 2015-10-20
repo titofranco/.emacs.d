@@ -62,7 +62,7 @@
 (add-to-list 'auto-mode-alist '("\\.xls\\.erb$" . rhtml-mode))
 
 ;; JS indentation
- (setq js-indent-level 2)
+(setq js-indent-level 2)
 (setq js2-basic-offset 2)
 
 ;;Coffee mode
@@ -130,3 +130,16 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/ac-dict")
 (ac-config-default)
 (set-keyboard-coding-system nil)
+
+;;reactjs jsx mode
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(defadvice web-mode-highlight-part (around tweak-jsx activate)
+  (if (equal web-mode-content-type "jsx")
+      (let ((web-mode-enable-part-face nil))
+        ad-do-it)
+    ad-do-it))
+
+(add-to-list 'load-path "~/.emacs.d/vendor/jsx-mode/src")
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+(autoload 'jsx-mode "jsx-mode" "JSX mode" t)
+(setq jsx-indent-level 2)
