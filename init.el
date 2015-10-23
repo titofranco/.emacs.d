@@ -49,11 +49,13 @@
 
 ;; rake
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\Gemfile*\\'" . ruby-mode))
 
 ;; js2-mode from https://github.com/mooz/js2-mode
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\.erb$" . rhtml-mode))
+
 ;; JS indentation
  (setq js-indent-level 2)
 (setq js2-basic-offset 2)
@@ -64,9 +66,11 @@
 (setq coffee-tab-width 2)
 
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.less\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.scss\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.erb\\'" . css-mode))
+(setq css-indent-offset 2)
 
 ;;handlebars mode
 (load-file "~/.emacs.d/vendor/handlebars-mode.el")
@@ -113,6 +117,7 @@
 ;; Disable automatic line break
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
 (add-hook 'js2-mode-hook 'turn-off-auto-fill)
+(add-hook 'ruby-mode-hook 'turn-off-auto-fill)
 
 ;; MuMaMo-Mode for rhtml files
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/nxhtml/util")
@@ -126,3 +131,34 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/ac-dict")
 (ac-config-default)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(server-mode t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; (require 'recentf)
+;; (setq recentf-auto-cleanup 'never) ;; disable before we start recentf!
+;; (recentf-mode 1)
+
+(setq tramp-default-method nil)
+
+;; jsx https://truongtx.me/2014/03/10/emacs-setup-jsx-mode-and-jsx-syntax-checking/
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(defadvice web-mode-highlight-part (around tweak-jsx activate)
+  (if (equal web-mode-content-type "jsx")
+      (let ((web-mode-enable-part-face nil))
+        ad-do-it)
+    ad-do-it))
+
+(add-to-list 'load-path "~/.emacs.d/vendor/jsx-mode.el/src")
+(require 'jsx-mode)
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+(setq jsx-indent-level 2)
