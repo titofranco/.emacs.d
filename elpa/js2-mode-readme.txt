@@ -30,6 +30,12 @@ You may also want to hook it in for shell scripts running via node.js:
 
   (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 
+Support for JSX is available via the derived mode `js2-jsx-mode'.  If you
+also want JSX support, use that mode instead:
+
+  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+  (add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
+
 To customize how it works:
   M-x customize-group RET js2-mode RET
 
@@ -50,5 +56,5 @@ This means that `js2-mode' is currently only useful for editing JavaScript
 files, and not for editing JavaScript within <script> tags or templates.
 
 The project page on GitHub is used for development and issue tracking.
-The original homepage at Google Code is mentioned here for posterity, it has
-outdated information and is mostly unmaintained.
+The original homepage at Google Code has outdated information and is mostly
+unmaintained.

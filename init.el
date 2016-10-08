@@ -98,7 +98,7 @@
 (scroll-bar-mode -1)
 
 ;; Font family and size
-(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 160)
+(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 180)
 
 ;;yasnippet mode
 (yas-global-mode 1)
@@ -143,3 +143,8 @@
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
 (autoload 'jsx-mode "jsx-mode" "JSX mode" t)
 (setq jsx-indent-level 2)
+
+(require 'rubocop)
+
+(add-to-list 'auto-mode-alist '("\\.proto\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
