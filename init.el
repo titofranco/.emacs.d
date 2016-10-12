@@ -1,7 +1,10 @@
 ;;Starter Kit
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
 ;;MY CONFIG
@@ -38,9 +41,6 @@
 (let* ((files (directory-files "~/.emacs.d/vendor" t "[^\.+]")))
  (mapcar (lambda (d) (add-to-list 'load-path d)) files))
 
-;;; rhtml mode
-(add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
-(require 'rhtml-mode)
 
 ;; Twilight mode
 (require 'color-theme)
@@ -102,7 +102,8 @@
 (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 130)
 
 ;;yasnippet mode
-(yas-global-mode 1)
+;;(yas-global-mode 1)
+(global-flycheck-mode)
 
 ;; Feature mode - Cucumber
 (add-to-list 'load-path "~/.emacs.d/elpa/feature-mode-0.4")
@@ -162,3 +163,29 @@
 (require 'jsx-mode)
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
 (setq jsx-indent-level 2)
+
+
+;; https://github.com/ananthakumaran/tide
+(add-hook 'typescript-mode-hook
+          (lambda ()
+            (tide-setup)
+            (flycheck-mode +1)
+            (setq flycheck-check-syntax-automatically '(save mode-enabled))
+            (eldoc-mode +1)
+            ;; company is an optional dependency. You have to
+            ;; install it separately via package-install
+            (company-mode-on)))
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-typescript-tslint-setup))
+
+(custom-set-variables
+ '(flycheck-typescript-tslint-config "~/tslint.json"))
+
+;;; rhtml mode
+;;(add-to-list 'load-path "~/.emacs.d/vendor/rhtml")
+;;(require 'rhtml-mode)

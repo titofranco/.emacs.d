@@ -1,7 +1,4 @@
 (1
- (punpun-theme .
-	       [(0 0 1)
-		nil "A bleak theme" tar])
  (zone-nyan .
 	    [(0 2 2)
 	     ((esxml
@@ -1278,6 +1275,9 @@
 		(pkg-info
 		 (0 4)))
 	       "Major mode for Puppet manifests" single])
+ (punpun-theme .
+	       [(0 0 1)
+		nil "A bleak theme" tar])
  (psvn .
        [(1 1 1)
 	nil "Subversion interface for emacs" single])
