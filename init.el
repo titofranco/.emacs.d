@@ -17,6 +17,10 @@
 (require 'dired-x)
 (require 'compile)
 
+;; disable auto-save and auto-backup
+(setq auto-save-default nil)
+(setq make-backup-files nil)
+
 (ido-mode t)
 (ido-ubiquitous-mode t)
 (display-time)
@@ -50,6 +54,7 @@
 ;; rake
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\Gemfile*\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\Vagrantfile" . ruby-mode))
 
 ;; js2-mode from https://github.com/mooz/js2-mode
 (autoload 'js2-mode "js2-mode" nil t)
