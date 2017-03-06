@@ -14,6 +14,10 @@
 (require 'dired-x)
 (require 'compile)
 
+;;remove autosave files
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
+
 (ido-mode t)
 (ido-ubiquitous-mode t)
 (display-time)
@@ -75,6 +79,7 @@
 (add-to-list 'auto-mode-alist '("\\.css\\.less\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.scss\\'" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\.erb\\'" . css-mode))
+(setq css-indent-offset 2)
 
 ;;handlebars mode
 (load-file "~/.emacs.d/vendor/handlebars-mode.el")
@@ -116,6 +121,8 @@
 ;; Disable automatic line break
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
 (add-hook 'js2-mode-hook 'turn-off-auto-fill)
+(add-hook 'ruby-mode-hook 'turn-off-auto-fill)
+(setq-default auto-fill-function 'do-auto-fill)
 
 ;; MuMaMo-Mode for rhtml files
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/nxhtml/util")
