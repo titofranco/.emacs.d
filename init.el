@@ -58,15 +58,19 @@
  (setq js-indent-level 2)
 (setq js2-basic-offset 2)
 
+(setq css-indent-offset 2)
+
 ;;Coffee mode
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 (setq coffee-tab-width 2)
 
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
-(add-to-list 'auto-mode-alist '("\\.css\\.less\\'" . css-mode))
-(add-to-list 'auto-mode-alist '("\\.css\\.scss\\'" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.scss$" . less-css-mode))
+
 (add-to-list 'auto-mode-alist '("\\.css\\.erb\\'" . css-mode))
+
+
 
 ;;handlebars mode
 (load-file "~/.emacs.d/vendor/handlebars-mode.el")
@@ -95,7 +99,7 @@
 (scroll-bar-mode -1)
 
 ;; Font family and size
-(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 130)
+(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 180)
 
 ;;yasnippet mode
 (yas-global-mode 1)
@@ -113,6 +117,11 @@
 ;; Disable automatic line break
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
 (add-hook 'js2-mode-hook 'turn-off-auto-fill)
+(add-hook 'ruby-mode-hook 'turn-off-auto-fill)
+(auto-fill-mode -1)
+(turn-off-auto-fill)
+(remove-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook 'turn-off-auto-fill)
 
 ;; MuMaMo-Mode for rhtml files
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/nxhtml/util")
@@ -126,3 +135,6 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/ac-dict")
 (ac-config-default)
+
+;; Dont create backup #.filemame
+(setq create-lockfiles nil)
